@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academlo Shop</title>
+    <link
+      rel="shortcut icon"
+      href="assets/img/academlo.png"
+      type="image/x-icon"
+    />
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- boxicons -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- javascript -->
+    <script src="./assets/js/main.js" defer type="module"></script>
+</head>
+<body>
+
+    <div class="loader">
+        <div class="loader_container">
+          <span><img src="assets/img/academlo.png" alt="img_loader" /></span>
+        </div>
+      </div>
+      <!-- Header -->
+      <header class="header"> 
+        <nav class="nav container">
+          <a href="/" class="nav_logo">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 48.92 56.48"
+              class="logo--icon"
+            >
+              <path
+                fill="currentColor"
+                d="M28.58,15.39H25.16L35.78,36H31.49L20.67,15.71,8.23,38.82H18.94l3-5.43h-3.4l-1.47,2.54h-4l2.69-5.09H25.85l4.28,8H40.67ZM17.23,28.21l3.57-6.6,3.57,6.6Z"
+              >
+              
+              </path>
+            </svg>
+          </a>
+          <div class="nav_menu">
+            <button type="button" class="nav_btn btn--close">
+              <i class="bx bx-x"> </i>
+            </button>
+            <ul class="nav_list">
+              <li class="nav_items">
+                <a href="#" class="nav_link">Inicio</a>
+              </li>
+              <li class="nav_items">
+                <a href="#" class="nav_link">Productos</a>
+              </li>
+            </ul>
+          </div>
+          <div class="nav_buttons">
+            <div class="search-box"><i class='bx bx-search-alt'></i>
+              <input type="search" class="nav_btn look-search" placeholder="¿Qué estás buscando?">
+            </div>
+              <button type="button" class="nav_btn btn--cart">
+                  <i class='bx bx-cart'></i>
+                  <span class="notify">0</span>
+              </button>
+              <button type="button" class="nav_btn btn--menu">
+                <i class='bx bx-grid-alt'></i>
+              </button>
+              <div id="dark" class="rot"><i class='bx bxs-moon'></i> </div>
+          </div>
+        </nav>
+  </header>
+  
+    <main class="main">
+        <section class="products section">
+          <h2 class="products__title section--title">Productos</h2>
+          <div class="products__container container"></div>
+        
+        </section>
+            
+
+              <!-- cart -->
+              <div class="cart">
+                <div class="cart__container">
+                  
+                  <div class="cart__header">
+                    <div class="cart__title"><h3 >Carrito de Compras</h3></div>
+                    <div class="cart__btn"><button type="button" class="cart--close">
+                      <i class='bx bx-x'></i>
+                    </button>
+                  </div>
+                  </div>
+                 <div class="container-tarjetas"> 
+                </div> 
+
+                  <div class="cart__footer">
+                    <div class="cart__count">
+                      <span class="cart__count--text">Articulos</span>
+                      <span class="cart__count--item">0</span>
+                    </div>
+                    <div class="cart__total">
+                      <span class="cart__count--text">Total</span>
+                      <span class="cart__total--item">$0</span>
+                    </div>
+
+
+                    <div class="cart__comprar"><button type="button" class="cart__btn btn--buy">
+                      Comprar
+                    </button></div>
+                  </div>
+                </div>
+              </div>
+    
+            </article>
+          </div>
+        </section>
+      </main>
+</body>
+</html>
