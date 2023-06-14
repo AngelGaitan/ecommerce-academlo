@@ -13,7 +13,7 @@
                
                <div class="product__content">
                  <div class="container_desc">
-                 <button type="button" class="product__btn add--to--cart" data-id"${product.id}" >
+                 <button type="button" class="product__btn add--to--cart" data-id="${product.id}" >
                    <i class='bx bx-cart-add'></i>
                  </button>
                  <div class="prod__container">

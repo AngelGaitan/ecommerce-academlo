@@ -98,6 +98,9 @@
   width: 400px;
   height: 500px;
 }
+.product:hover .product__content{
+  transform: translateY(-140px);
+}
     :root {
       --big-font: 2.5rem;
       --medium-font: 2rem;
@@ -146,6 +149,10 @@
       z-index: var(--z-fixed);
       transition: left .5s ease-in-out;
   }
+  .product:hover .product__content{
+    transform: translateY(-84px);
+  }
+  
   }
   
   /* === Base === */
@@ -389,10 +396,13 @@ left:0%
 width: 400px;
 height: 550px;
 }
-
+.product:hover .product__content{
+  transform: translateY(-130px);
+}
 .product__title{
   display: flex;
-  font-size: 10px;
+  font-size: 16px;
+  text-align: justify;
 }
 
 .btn--menu,
@@ -551,12 +561,13 @@ transform: rotate(.8turn);
   position: relative;
   top: 10px;
   display: grid;
-  grid-template-columns: 100px 120px auto auto;
+  grid-template-columns: 100px 20px 60px 90px 10px;
   grid-template-rows: 1.5fr 0.5fr;
   width: 95%;
   height: 100px;
   border: 1px dashed black;
   margin: 0 auto;
+  padding-bottom: 10px;
 }
 
 .c{
@@ -578,22 +589,43 @@ align-items: center;
 }
 
 .product_name{
-
+  position: relative;
+  bottom: 5px;
   justify-content: center;
   align-items: center;
   grid-column: 2/span3;
   grid-row: 1/span1;
-
+  font-size: 16px;  
 }
 
 .product_precio{
   grid-column: 2/span1;
   grid-row: 2/span1;
 }
-.symbols{
-  gap: 10px;
-  grid-column:3/span1;
+
+.color_product{
+  position: relative;
+  top: 5px;
+  left: 40px;
+  gap: 5px;
+  grid-column: 3/span2;
   grid-row: 2/span1;
+  align-items: center;
+  
+}
+.color_box{
+  width: 20px;
+  height: 20px;
+ background-color: black;
+}
+
+.symbols{
+  position: relative;
+  right: 5px;
+  gap: 10px;
+  grid-column: 4/span1;
+  grid-row: 2/span1;
+ justify-content: flex-end;
 }
 .bx-plus,
 .bx-minus{
@@ -602,14 +634,22 @@ align-items: center;
 }
 .product_trash{
   justify-content: flex-end;
-  grid-column: 4/span1;
-  grid-row: 2/span1;
+  align-items: flex-start;
+  left: 50px;
+  grid-column: 5/span1;
+  grid-row: 1/span1;
   margin-right: 5px;
+
 }
 
 /*visibilidad del cart__empty */
 .cart__empty{
-  visibility: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  top: 200px;
 }
 
 /* ====FOOTER==== */
@@ -735,9 +775,6 @@ align-items: center;
   padding: var(--sp-1-5);
   min-height: auto;
   top:100px
-}
-.product:hover .product__content{
-  transform: translateY(-100px);
 }
 
 .product__btn {

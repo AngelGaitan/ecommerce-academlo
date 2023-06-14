@@ -30,13 +30,14 @@ function cart(db, printProducts) {
                <div class="tarjeta_container">
                <div class="c imagen_cart"><span><img src="${product.image}" alt="${product.name}" class="camisete"></span></div>
                <div class="c product_name"><span><h3>${product.name}</h3></span></div>
-               <div class="c product_precio"><span>${product.price}</span></div>
+               <div class="c product_precio"><span>$${product.price}</span></div>
+               <div class="c color_product"><span>color:</span><span class="color_box"></span> </div>
                <div class="c symbols">
                 <button type="button" class="quantity article--plus" data-id="${item.id}"><i class='bx bx-plus'></i></button>
                 <span class="quantity"> ${item.qty}</span>
                 <button type="button" class="quantity article--minus" data-id="${item.id}"><i class='bx bx-minus'></i></button>
                </div> 
-               <div class="c product_trash remove-from-cart" data-id="${item.id}"><button><i class='bx bx-trash' ></i></button></div>
+               <div class="c product_trash remove-from-cart" ><button><i class='bx bx-trash' data-id="${item.id}" ></i></button></div>
            </div>`
             } 
             notifyDOM.classList.add('show--notify');
@@ -49,15 +50,17 @@ function cart(db, printProducts) {
     }
     function addToCart(id, qty = 1) {
      const itemFinded = cart.find(i => i.id === id)
+     
      if (itemFinded) {
-        itemFinded.qty += qty
-     } else {
+        itemFinded.qty += qty 
+     } 
+     else {
         cart.push({id,qty})
      }
      printCart()
     }
     // SIGAN VIENDO 
-    function removeFromCart(id, qty){
+    function removeFromCart(id, qty = 1){
         const itemFinded = cart.find(i => i.id === id)
         const result = itemFinded.qty - qty
         if (result > 0) {
@@ -96,16 +99,39 @@ function cart(db, printProducts) {
 
     function checkout() {
         for (const item of cart) {
+            
             const productFinded = db.find( p => p.id === item.id)
-            productFinded.quantity -= item.qty
+            
+            if (productFinded.quantity >= item.qty) {
+                productFinded.quantity -= item.qty 
+                window.alert('gracias por su compra')
+               
+            } else if(productFinded.quantity < item.qty) {
+                
+               window.alert(` te estás excediendo con la compra de ${productFinded.name} solo temos disponibles: ${productFinded.quantity} productos ` ) 
+            }
         }
         cart = [];
         printCart();
         printProducts();
 
-        window.alert('Gracias por su compra')
+        
     }
     printCart()
+
+    // FUNCION PARA LOS DISPONIBLES
+function removeFromCart(id, qty = 1){
+        const itemFinded = cart.find(i => i.id === id)
+        const result = itemFinded.qty - qty
+        if (result > 0) {
+            itemFinded.qty -= qty
+        } else{
+         cart = cart.filter(i => i.id !== id)
+        }
+        printCart()
+    }
+
+
     // EVENTOS
 
     productsDOM.addEventListener('click', function (e) {
@@ -127,8 +153,8 @@ function cart(db, printProducts) {
             addToCart(id)
         }
         
-        if (e.tagert.closest('.remove-from-cart')) {
-            const id = +e.target.closest('.remove-from-cart').dataset.id
+        if (e.target.closest('.bx-trash')) {
+            const id = +e.target.closest('.bx-trash').dataset.id
             deleteFromCart(id)
         }
 
