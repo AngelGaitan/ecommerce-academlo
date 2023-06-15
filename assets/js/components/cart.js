@@ -5,6 +5,7 @@ function cart(db, printProducts) {
 
     const productsDOM = document.querySelector('.products__container');
     const notifyDOM = document.querySelector('.notify');
+    const agotadoDom = document.querySelector('.agotado')
     const cartDOM = document.querySelector('.container-tarjetas');
     const countDOM = document.querySelector('.cart__count--item');
     const totalDOM = document.querySelector('.cart__total--item');
@@ -22,8 +23,10 @@ function cart(db, printProducts) {
                <p class="cart__empty--text">No hay productos en el cart</p>
             </div>
             `
-            notifyDOM.classList.remove('show--notify')
-        } else {
+            notifyDOM.classList.remove('.show--notify') 
+        } 
+        
+        else {
             for (const item of cart) {
                const product = db.find(p => p.id === item.id)
                htmlCart += `
@@ -39,8 +42,9 @@ function cart(db, printProducts) {
                </div> 
                <div class="c product_trash remove-from-cart" ><button><i class='bx bx-trash' data-id="${item.id}" ></i></button></div>
            </div>`
+       
             } 
-            notifyDOM.classList.add('show--notify');
+            notifyDOM.classList.add('.show--notify');
         }
         cartDOM.innerHTML = htmlCart;
         notifyDOM.innerHTML = showItemsCount();
@@ -98,23 +102,33 @@ function cart(db, printProducts) {
 
 
     function checkout() {
+        if (cart.length > 0) {
         for (const item of cart) {
             
             const productFinded = db.find( p => p.id === item.id)
+           
+                
             
             if (productFinded.quantity >= item.qty) {
                 productFinded.quantity -= item.qty 
+                agotadoDom.classList.remove('anidado')
                 window.alert('gracias por su compra')
                
-            } else if(productFinded.quantity < item.qty) {
+            } else if(productFinded.quantity < item.qty  && productFinded.quantity >= 1) {
                 
                window.alert(` te estás excediendo con la compra de ${productFinded.name} solo temos disponibles: ${productFinded.quantity} productos ` ) 
+            } else if(productFinded.quantity === 0){
+               agotadoDom.classList.remove('anidado');
+                window.alert('lo sentimos no quedan más productos')
+               
             }
+        }
+        } else {
+            window.alert('no hay productos en el carrito')
         }
         cart = [];
         printCart();
         printProducts();
-
         
     }
     printCart()
@@ -126,6 +140,7 @@ function removeFromCart(id, qty = 1){
         if (result > 0) {
             itemFinded.qty -= qty
         } else{
+            notifyDOM.classList.remove('.show--notify') ;
          cart = cart.filter(i => i.id !== id)
         }
         printCart()
