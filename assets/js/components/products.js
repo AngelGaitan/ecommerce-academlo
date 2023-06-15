@@ -4,7 +4,7 @@
      function printProducts(products){
           const productsDom = document.querySelector('.products__container')
           let htmlProduct = ''
-
+      
           for (const product of db) {
                htmlProduct += `<article class="product">
                <div class="agotado"><span>Agotado</span></div>

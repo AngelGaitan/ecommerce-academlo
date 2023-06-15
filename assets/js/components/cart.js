@@ -111,14 +111,15 @@ function cart(db, printProducts) {
             
             if (productFinded.quantity >= item.qty) {
                 productFinded.quantity -= item.qty 
-                agotadoDom.classList.remove('anidado')
+                
                 window.alert('gracias por su compra')
                
             } else if(productFinded.quantity < item.qty  && productFinded.quantity >= 1) {
                 
                window.alert(` te estás excediendo con la compra de ${productFinded.name} solo temos disponibles: ${productFinded.quantity} productos ` ) 
             } else if(productFinded.quantity === 0){
-               agotadoDom.classList.remove('anidado');
+                console.log(agotadoDom)
+               agotadoDom.classList.add('agotadoT');
                 window.alert('lo sentimos no quedan más productos')
                
             }

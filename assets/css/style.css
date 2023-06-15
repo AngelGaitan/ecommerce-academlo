@@ -501,8 +501,8 @@ transform: rotate(.8turn);
       justify-content: center;
       align-items: center;
       border-radius: 50%;
-      opacity: 1;
-      visibility: visible;
+      opacity: 0;
+      visibility: hidden;
       transition: opacity .3s ease-in-out,
                   visibility .3s ease-in-out;
   }  
@@ -516,7 +516,6 @@ transform: rotate(.8turn);
   .show--notify {
       opacity: 1;
       visibility: visible;
-      background-color: black;
   }
 
 
@@ -779,10 +778,15 @@ visibility: hidden;
 .agotadoT{
   visibility: visible;
   }
+
+
   .modal{
+    position: relative;
+    top: 9px;
     background-color: rgb(241, 68, 97);
     border-radius: 20px;
     width: 100%;
+
   }
 
 .product__content {
