@@ -10,7 +10,7 @@ function cart(db, printProducts) {
     const countDOM = document.querySelector('.cart__count--item');
     const totalDOM = document.querySelector('.cart__total--item');
     const checkoutDOM = document.querySelector('.btn--buy');
-
+    
     // profe vea esta funcion ponganos 10 
 
 
@@ -96,9 +96,13 @@ function cart(db, printProducts) {
         for (const item of cart) {
             const productFinded = db.find( p => p.id === item.id)
             total  += item.qty * productFinded.price
+            
         }
         return total
+
+       
     }
+    
 
 
     function checkout() {

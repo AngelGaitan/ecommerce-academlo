@@ -14,6 +14,7 @@ import cart from './components/cart.js';
 import showSearcher from './components/search.js';
 
 import showModal from './components/showModal.js';
+import showCupon from './components/showCupon.js';
 
     
 
@@ -21,6 +22,6 @@ const { db, printProducts} = products(await getProducts());
 cart(db, printProducts);
 showSearcher(db);
 showModal(await getProducts());
-
+showCupon()
 
 

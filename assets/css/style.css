@@ -549,11 +549,12 @@ transform: rotate(.8turn);
 .container-tarjetas{
   grid-row: 2;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 .cart__container{
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 15% 65% 20%; /*h, b, f*/
+  grid-template-rows: 15% 60% 25%; /*h, b, f*/
   height: 100%;
 }
 
@@ -658,11 +659,29 @@ z-index: var(--z-fixed);
 .cart__footer{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   grid-row: 3;
 }
 
+.container-descuento{
+  display: flex;
+  justify-content: center;
+grid-column: 1/span2;
+grid-row: 3/span1;
+z-index: var(--z-fixed);
+}
+#descuento{
+gap: 10px;
+}
+#buscar{
+  background-color: red;
+  width: 20px;
+  height: 20px;
+}
 .btn--buy{
+  position: relative;
+  right: 23px;
+  bottom: 20px;
   background-color: black;
   color: rgb(253, 246, 246);  
   width: 150px;
@@ -677,21 +696,25 @@ z-index: var(--z-fixed);
 }
 
 .cart__count{
+  position: relative ;
   padding-top: 16px;
   padding-left: 10px  ;
   display: flex;
   grid-column: 1/span1;
   grid-row: 1/span1;
   gap: 10px;
+  bottom: 10px;
 }
 
 .cart__total{
+  position: relative;
   padding-top: 10px;
   padding-left: 10px;
    display: flex;
   grid-column: 1/ span1;
   grid-row: 2/span1;
   gap: 10px;
+  bottom: 10px;
 }
 
 .cart__comprar{
@@ -784,7 +807,8 @@ visibility: hidden;
 
 /* ===========MODAL ========== */
 .boton-modal label{
-  padding: 10px 15px;
+  margin-bottom: 0px;
+  padding: 0px 15px;
   background-color: rgb(241, 68, 97);
   border-radius: 4px;
   cursor: pointer;
