@@ -10,6 +10,7 @@ function cart(db, printProducts) {
     const countDOM = document.querySelector('.cart__count--item');
     const totalDOM = document.querySelector('.cart__total--item');
     const checkoutDOM = document.querySelector('.btn--buy');
+
     
     // profe vea esta funcion ponganos 10 
 
@@ -110,13 +111,16 @@ function cart(db, printProducts) {
         for (const item of cart) {
             
             const productFinded = db.find( p => p.id === item.id)
-           
-                
+            const inputDOM = document.getElementById('descuento').value
+            const desc1 = document.querySelector('.desc').innerHTML   
             
             if (productFinded.quantity >= item.qty) {
                 productFinded.quantity -= item.qty 
+                console.log(inputDOM)
+                if (inputDOM === 'academlo1') {
+                    window.alert(`gracias por su compra se ha aplicado un descuento del 50% su nuevo valor es de ${desc1}`)
+                }else{ window.alert('gracias por su compra')}
                 
-                window.alert('gracias por su compra')
                
             } else if(productFinded.quantity < item.qty  && productFinded.quantity >= 1) {
                 
